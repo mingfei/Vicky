@@ -1,6 +1,6 @@
 # Summary
 
-* [Remember](README.md)
+* [diligent](README.md)
 * [语文](chinese/README.md)
   * [2016年10月](chinese/201610.md)
   * [2016年11月](chinese/201611.md)
