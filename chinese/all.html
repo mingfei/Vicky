@@ -10,9 +10,60 @@
 
         body {
             font-family: "Courier New", serif;
-            font-size: 2em;
         }
 
+        table {
+            width: 100%;
+            height: 100%;
+            margin: 20px 0;
+            border: 10px #999 outset;
+        }
+
+        caption {
+            color: #999;
+            font-size: 2em;
+            font-weight: bolder;
+            margin-bottom: 20px;
+        }
+
+        td {
+            border-right: 1px solid #000;
+            border-bottom: 1px solid #000;
+        }
+
+        td:last-of-type {
+            border-right: none;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .bg {
+            background: #eee;
+        }
+
+        .hover {
+            background: #ff0;
+        }
+
+        .h {
+            font-size: 1.5em;
+            font-weight: 800;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .dot {
+            color: #00008b;
+        }
+
+        i {
+            text-decoration: line-through;
+            font-style: normal;
+        }
+
+        .dot,
         .n,
         .z,
         .ui {
@@ -20,51 +71,70 @@
         }
 
         .n { /* not available */
-            color: #ccc;
+            color: #eee;
         }
 
         .z { /* ZHENG TI REN DU */
-            color: #0f0;
+            font-style: italic;
+            text-decoration: underline;
         }
 
-        .ui { /* +u */
-            color: #f00;
+        .ui { /* +u / +i */
+            color: #C00000;
         }
-
     </style>
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script>
+        $(function () {
+            $('tr:even').addClass('bg');
+            $("table").delegate('td', 'mouseover mouseout', function (e) {
+                if (e.type == 'mouseover') {
+                    $(this).addClass('hover');
+                    $('tr td').eq($(this).index()).addClass("hover");
+                    $(this).parent().find('td:first').addClass("hover");
+                }
+                else {
+                    $(this).removeClass('hover');
+                    $('tr td').eq($(this).index()).removeClass("hover");
+                    $(this).parent().find('td:first').removeClass("hover");
+                }
+            });
+            $('.n').empty();
+        });
+    </script>
 </head>
 <body>
-<table border="1">
-    <caption>拼音全表</caption>
+<table cellpadding="0" cellspacing="0">
+    <caption>汉语拼音总表</caption>
     <tr>
-        <td class="">＼</td>
-        <td class="">a</td>
-        <td class="">o</td>
-        <td class="">e</td>
-        <td class="">i</td>
-        <td class="">u</td>
-        <td class="">ü</td>
-        <td class="">ai</td>
-        <td class="">ei</td>
-        <td class="">ui</td>
-        <td class="">ao</td>
-        <td class="">ou</td>
-        <td class="">iu</td>
-        <td class="">ie</td>
-        <td class="">üe</td>
-        <td class="">er</td>
-        <td class="">an</td>
-        <td class="">en</td>
-        <td class="">in</td>
-        <td class="">un</td>
-        <td class="">ün</td>
-        <td class="">ang</td>
-        <td class="">eng</td>
-        <td class="">ing</td>
-        <td class="">ong</td>
+        <td class="h">＼</td>
+        <td class="h">a</td>
+        <td class="h">o</td>
+        <td class="h">e</td>
+        <td class="h">i</td>
+        <td class="h">u</td>
+        <td class="h">ü</td>
+        <td class="h">ai</td>
+        <td class="h">ei</td>
+        <td class="h">ui</td>
+        <td class="h">ao</td>
+        <td class="h">ou</td>
+        <td class="h">iu</td>
+        <td class="h">ie</td>
+        <td class="h">üe</td>
+        <td class="h">er</td>
+        <td class="h">an</td>
+        <td class="h">en</td>
+        <td class="h">in</td>
+        <td class="h">un</td>
+        <td class="h">ün</td>
+        <td class="h">ang</td>
+        <td class="h">eng</td>
+        <td class="h">ing</td>
+        <td class="h">ong</td>
     </tr>
     <tr>
-        <td class="">b</td>
+        <td class="h">b</td>
         <td class="">ba</td>
         <td class="">bo</td>
         <td class="n">be</td>
@@ -91,7 +161,7 @@
         <td class="n">bong</td>
     </tr>
     <tr>
-        <td class="">p</td>
+        <td class="h">p</td>
         <td class="">pa</td>
         <td class="">po</td>
         <td class="n">pe</td>
@@ -118,7 +188,7 @@
         <td class="n">pong</td>
     </tr>
     <tr>
-        <td class="">m</td>
+        <td class="h">m</td>
         <td class="">ma</td>
         <td class="">mo</td>
         <td class="">me</td>
@@ -145,7 +215,7 @@
         <td class="n">mong</td>
     </tr>
     <tr>
-        <td class="">f</td>
+        <td class="h">f</td>
         <td class="">fa</td>
         <td class="">fo</td>
         <td class="n">fe</td>
@@ -172,7 +242,7 @@
         <td class="n">fong</td>
     </tr>
     <tr>
-        <td class="">d</td>
+        <td class="h">d</td>
         <td class="">da</td>
         <td class="ui">duo</td>
         <td class="">de</td>
@@ -199,7 +269,7 @@
         <td class="">dong</td>
     </tr>
     <tr>
-        <td class="">t</td>
+        <td class="h">t</td>
         <td class="">ta</td>
         <td class="ui">tuo</td>
         <td class="">te</td>
@@ -226,7 +296,7 @@
         <td class="">tong</td>
     </tr>
     <tr>
-        <td class="">n</td>
+        <td class="h">n</td>
         <td class="">na</td>
         <td class="ui">nuo</td>
         <td class="">ne</td>
@@ -253,7 +323,7 @@
         <td class="">nong</td>
     </tr>
     <tr>
-        <td class="">l</td>
+        <td class="h">l</td>
         <td class="ui">la lia</td>
         <td class="ui">luo</td>
         <td class="">le</td>
@@ -280,7 +350,7 @@
         <td class="">long</td>
     </tr>
     <tr>
-        <td class="">g</td>
+        <td class="h">g</td>
         <td class="ui">ga gua</td>
         <td class="ui">guo</td>
         <td class="">ge</td>
@@ -307,7 +377,7 @@
         <td class="">gong</td>
     </tr>
     <tr>
-        <td class="">k</td>
+        <td class="h">k</td>
         <td class="ui">kua</td>
         <td class="ui">kuo</td>
         <td class="">ke</td>
@@ -334,7 +404,7 @@
         <td class="">kong</td>
     </tr>
     <tr>
-        <td class="">h</td>
+        <td class="h">h</td>
         <td class="ui">ha hua</td>
         <td class="ui">huo</td>
         <td class="">he</td>
@@ -361,329 +431,334 @@
         <td class="">hong</td>
     </tr>
     <tr>
-        <td class="">j</td>
+        <td class="h">j</td>
         <td class="ui">jia</td>
         <td class="n">jo</td>
         <td class="n">je</td>
         <td class="">ji</td>
         <td class="n">ju</td>
-        <td class="">jü - ju</td>
+        <td class="dot"><i>jü</i> - ju</td>
         <td class="n">jai</td>
         <td class="n">jei</td>
         <td class="n">jui</td>
-        <td class="">jao</td>
-        <td class="">jou</td>
+        <td class="ui">jiao</td>
+        <td class="n">jou</td>
         <td class="">jiu</td>
         <td class="">jie</td>
-        <td class="">jüe</td>
-        <td class="">jer</td>
-        <td class="">jan</td>
-        <td class="">jen</td>
+        <td class="dot"><i>jüe</i> - jue</td>
+        <td class="n">jer</td>
+        <td class="ui">jian juan</td>
+        <td class="n">jen</td>
         <td class="">jin</td>
-        <td class="">jun</td>
-        <td class="">jün</td>
-        <td class="">jang</td>
-        <td class="">jeng</td>
+        <td class="n">jun</td>
+        <td class="dot"><i>jün</i> - jun</td>
+        <td class="ui">jiang</td>
+        <td class="n">jeng</td>
         <td class="">jing</td>
-        <td class="">jong</td>
+        <td class="ui">jiong</td>
     </tr>
     <tr>
-        <td class="">q</td>
-        <td class="">qa</td>
-        <td class="">qo</td>
-        <td class="">qe</td>
+        <td class="h">q</td>
+        <td class="ui">qia</td>
+        <td class="n">qo</td>
+        <td class="n">qe</td>
         <td class="">qi</td>
-        <td class="">qu</td>
-        <td class="">qü</td>
-        <td class="">qai</td>
-        <td class="">qei</td>
-        <td class="">qui</td>
-        <td class="">qao</td>
-        <td class="">qou</td>
+        <td class="n">qu</td>
+        <td class="dot"><i>qü</i> - qu</td>
+        <td class="n">qai</td>
+        <td class="n">qei</td>
+        <td class="n">qui</td>
+        <td class="ui">qiao</td>
+        <td class="n">qou</td>
         <td class="">qiu</td>
         <td class="">qie</td>
-        <td class="">qüe</td>
-        <td class="">qer</td>
-        <td class="">qan</td>
-        <td class="">qen</td>
+        <td class="dot"><i>qüe</i> - que</td>
+        <td class="n">qer</td>
+        <td class="ui">qian quan</td>
+        <td class="n">qen</td>
         <td class="">qin</td>
-        <td class="">qun</td>
-        <td class="">qün</td>
-        <td class="">qang</td>
-        <td class="">qeng</td>
+        <td class="n">qun</td>
+        <td class="dot"><i>qün</i> - qun</td>
+        <td class="ui">qiang</td>
+        <td class="n">qeng</td>
         <td class="">qing</td>
-        <td class="">qong</td>
+        <td class="ui">qiong</td>
     </tr>
     <tr>
-        <td class="">x</td>
-        <td class="">xa</td>
-        <td class="">xo</td>
-        <td class="">xe</td>
+        <td class="h">x</td>
+        <td class="ui">xia</td>
+        <td class="n">xo</td>
+        <td class="n">xe</td>
         <td class="">xi</td>
-        <td class="">xu</td>
-        <td class="">xü</td>
-        <td class="">xai</td>
-        <td class="">xei</td>
-        <td class="">xui</td>
-        <td class="">xao</td>
-        <td class="">xou</td>
+        <td class="n">xu</td>
+        <td class="dot"><i>xü</i> - xu</td>
+        <td class="n">xai</td>
+        <td class="n">xei</td>
+        <td class="n">xui</td>
+        <td class="ui">xiao</td>
+        <td class="n">xou</td>
         <td class="">xiu</td>
         <td class="">xie</td>
-        <td class="">xüe</td>
-        <td class="">xer</td>
-        <td class="">xan</td>
-        <td class="">xen</td>
+        <td class="n">xüe</td>
+        <td class="n">xer</td>
+        <td class="ui">xian xuan</td>
+        <td class="n">xen</td>
         <td class="">xin</td>
-        <td class="">xun</td>
-        <td class="">xün</td>
-        <td class="">xang</td>
-        <td class="">xeng</td>
+        <td class="n">xun</td>
+        <td class="dot"><i>xün</i> - xun</td>
+        <td class="ui">xiang</td>
+        <td class="n">xeng</td>
         <td class="">xing</td>
-        <td class="">xong</td>
+        <td class="ui">xiong</td>
     </tr>
     <tr>
-        <td class="">zh</td>
-        <td class="">zha</td>
-        <td class="">zho</td>
+        <td class="h">zh</td>
+        <td class="ui">zha zhua</td>
+        <td class="ui">zhuo</td>
         <td class="">zhe</td>
-        <td class="">zhi</td>
+        <td class="z">zhi</td>
         <td class="">zhu</td>
-        <td class="">zhü</td>
-        <td class="">zhai</td>
+        <td class="n">zhü</td>
+        <td class="ui">zhai zhuai</td>
         <td class="">zhei</td>
         <td class="">zhui</td>
         <td class="">zhao</td>
         <td class="">zhou</td>
-        <td class="">zhiu</td>
-        <td class="">zhie</td>
-        <td class="">zhüe</td>
-        <td class="">zher</td>
-        <td class="">zhan</td>
+        <td class="n">zhiu</td>
+        <td class="n">zhie</td>
+        <td class="n">zhüe</td>
+        <td class="n">zher</td>
+        <td class="ui">zhan zhuan</td>
         <td class="">zhen</td>
-        <td class="">zhin</td>
+        <td class="n">zhin</td>
         <td class="">zhun</td>
-        <td class="">zhün</td>
-        <td class="">zhang</td>
+        <td class="n">zhün</td>
+        <td class="ui">zhang zhuang</td>
         <td class="">zheng</td>
-        <td class="">zhing</td>
+        <td class="n">zhing</td>
         <td class="">zhong</td>
     </tr>
     <tr>
-        <td class="">ch</td>
-        <td class="">cha</td>
-        <td class="">cho</td>
+        <td class="h">ch</td>
+        <td class="ui">cha chua</td>
+        <td class="ui">chuo</td>
         <td class="">che</td>
-        <td class="">chi</td>
+        <td class="z">chi</td>
         <td class="">chu</td>
-        <td class="">chü</td>
-        <td class="">chai</td>
-        <td class="">chei</td>
+        <td class="n">chü</td>
+        <td class="ui">chai chuai</td>
+        <td class="n">chei</td>
         <td class="">chui</td>
         <td class="">chao</td>
         <td class="">chou</td>
-        <td class="">chiu</td>
-        <td class="">chie</td>
-        <td class="">chüe</td>
-        <td class="">cher</td>
-        <td class="">chan</td>
+        <td class="n">chiu</td>
+        <td class="n">chie</td>
+        <td class="n">chüe</td>
+        <td class="n">cher</td>
+        <td class="ui">chan chuan</td>
         <td class="">chen</td>
-        <td class="">chin</td>
+        <td class="n">chin</td>
         <td class="">chun</td>
-        <td class="">chün</td>
-        <td class="">chang</td>
+        <td class="n">chün</td>
+        <td class="ui">chang chuang</td>
         <td class="">cheng</td>
-        <td class="">ching</td>
+        <td class="n">ching</td>
         <td class="">chong</td>
     </tr>
     <tr>
-        <td class="">sh</td>
-        <td class="">sha</td>
-        <td class="">sho</td>
+        <td class="h">sh</td>
+        <td class="ui">sha shua</td>
+        <td class="n">sho</td>
         <td class="">she</td>
-        <td class="">shi</td>
+        <td class="z">shi</td>
         <td class="">shu</td>
-        <td class="">shü</td>
-        <td class="">shai</td>
+        <td class="n">shü</td>
+        <td class="ui">shai shuai</td>
         <td class="">shei</td>
         <td class="">shui</td>
         <td class="">shao</td>
         <td class="">shou</td>
-        <td class="">shiu</td>
-        <td class="">shie</td>
-        <td class="">shüe</td>
-        <td class="">sher</td>
-        <td class="">shan</td>
+        <td class="n">shiu</td>
+        <td class="n">shie</td>
+        <td class="n">shüe</td>
+        <td class="n">sher</td>
+        <td class="ui">shan shuan</td>
         <td class="">shen</td>
-        <td class="">shin</td>
+        <td class="n">shin</td>
         <td class="">shun</td>
-        <td class="">shün</td>
-        <td class="">shang</td>
+        <td class="n">shün</td>
+        <td class="ui">shang shuang</td>
         <td class="">sheng</td>
-        <td class="">shing</td>
-        <td class="">shong</td>
+        <td class="n">shing</td>
+        <td class="n">shong</td>
     </tr>
     <tr>
-        <td class="">r</td>
-        <td class="">ra</td>
-        <td class="">ro</td>
+        <td class="h">r</td>
+        <td class="ui">rua</td>
+        <td class="ui">ruo</td>
         <td class="">re</td>
-        <td class="">ri</td>
+        <td class="z">ri</td>
         <td class="">ru</td>
-        <td class="">rü</td>
-        <td class="">rai</td>
-        <td class="">rei</td>
+        <td class="n">rü</td>
+        <td class="n">rai</td>
+        <td class="n">rei</td>
         <td class="">rui</td>
         <td class="">rao</td>
         <td class="">rou</td>
-        <td class="">riu</td>
-        <td class="">rie</td>
-        <td class="">rüe</td>
-        <td class="">rer</td>
-        <td class="">ran</td>
+        <td class="n">riu</td>
+        <td class="n">rie</td>
+        <td class="n">rüe</td>
+        <td class="n">rer</td>
+        <td class="ui">ran ruan</td>
         <td class="">ren</td>
-        <td class="">rin</td>
+        <td class="n">rin</td>
         <td class="">run</td>
-        <td class="">rün</td>
+        <td class="n">rün</td>
         <td class="">rang</td>
         <td class="">reng</td>
-        <td class="">ring</td>
+        <td class="n">ring</td>
         <td class="">rong</td>
     </tr>
     <tr>
-        <td class="">z</td>
+        <td class="h">z</td>
         <td class="">za</td>
-        <td class="">zo</td>
+        <td class="ui">zuo</td>
         <td class="">ze</td>
-        <td class="">zi</td>
+        <td class="z">zi</td>
         <td class="">zu</td>
-        <td class="">zü</td>
-        <td class="">zai</td>
+        <td class="n">zü</td>
+        <td class="n">zai</td>
         <td class="">zei</td>
         <td class="">zui</td>
         <td class="">zao</td>
         <td class="">zou</td>
-        <td class="">ziu</td>
-        <td class="">zie</td>
-        <td class="">züe</td>
-        <td class="">zer</td>
-        <td class="">zan</td>
+        <td class="n">ziu</td>
+        <td class="n">zie</td>
+        <td class="n">züe</td>
+        <td class="n">zer</td>
+        <td class="ui">zan zuan</td>
         <td class="">zen</td>
-        <td class="">zin</td>
+        <td class="n">zin</td>
         <td class="">zun</td>
-        <td class="">zün</td>
+        <td class="n">zün</td>
         <td class="">zang</td>
         <td class="">zeng</td>
-        <td class="">zing</td>
+        <td class="n">zing</td>
         <td class="">zong</td>
     </tr>
     <tr>
-        <td class="">c</td>
+        <td class="h">c</td>
         <td class="">ca</td>
-        <td class="">co</td>
+        <td class="ui">cuo</td>
         <td class="">ce</td>
-        <td class="">ci</td>
+        <td class="z">ci</td>
         <td class="">cu</td>
-        <td class="">cü</td>
+        <td class="n">cü</td>
         <td class="">cai</td>
-        <td class="">cei</td>
+        <td class="n">cei</td>
         <td class="">cui</td>
         <td class="">cao</td>
         <td class="">cou</td>
-        <td class="">ciu</td>
-        <td class="">cie</td>
-        <td class="">cüe</td>
-        <td class="">cer</td>
-        <td class="">can</td>
+        <td class="n">ciu</td>
+        <td class="n">cie</td>
+        <td class="n">cüe</td>
+        <td class="n">cer</td>
+        <td class="ui">can cuan</td>
         <td class="">cen</td>
-        <td class="">cin</td>
+        <td class="n">cin</td>
         <td class="">cun</td>
-        <td class="">cün</td>
+        <td class="n">cün</td>
         <td class="">cang</td>
         <td class="">ceng</td>
-        <td class="">cing</td>
+        <td class="n">cing</td>
         <td class="">cong</td>
     </tr>
     <tr>
-        <td class="">s</td>
+        <td class="h">s</td>
         <td class="">sa</td>
-        <td class="">so</td>
+        <td class="ui">suo</td>
         <td class="">se</td>
-        <td class="">si</td>
+        <td class="z">si</td>
         <td class="">su</td>
-        <td class="">sü</td>
-        <td class="">sai</td>
-        <td class="">sei</td>
+        <td class="n">sü</td>
+        <td class="n">sai</td>
+        <td class="n">sei</td>
         <td class="">sui</td>
         <td class="">sao</td>
         <td class="">sou</td>
-        <td class="">siu</td>
-        <td class="">sie</td>
-        <td class="">süe</td>
-        <td class="">ser</td>
-        <td class="">san</td>
+        <td class="n">siu</td>
+        <td class="n">sie</td>
+        <td class="n">süe</td>
+        <td class="n">ser</td>
+        <td class="ui">san suan</td>
         <td class="">sen</td>
-        <td class="">sin</td>
+        <td class="n">sin</td>
         <td class="">sun</td>
-        <td class="">sün</td>
+        <td class="n">sün</td>
         <td class="">sang</td>
         <td class="">seng</td>
-        <td class="">sing</td>
+        <td class="n">sing</td>
         <td class="">song</td>
     </tr>
     <tr>
-        <td class="">y</td>
+        <td class="h">y</td>
         <td class="">ya</td>
         <td class="">yo</td>
-        <td class="">ye</td>
-        <td class="">yi</td>
-        <td class="">yu</td>
-        <td class="">yü</td>
-        <td class="">yai</td>
-        <td class="">yei</td>
-        <td class="">yui</td>
+        <td class="z">ye</td>
+        <td class="z">yi</td>
+        <td class="z">yu</td>
+        <td class="z dot"><i>yü</i> - yu</td>
+        <td class="n">yai</td>
+        <td class="n">yei</td>
+        <td class="n">yui</td>
         <td class="">yao</td>
         <td class="">you</td>
-        <td class="">yiu</td>
-        <td class="">yie</td>
-        <td class="">yüe</td>
-        <td class="">yer</td>
-        <td class="">yan</td>
-        <td class="">yen</td>
-        <td class="">yin</td>
-        <td class="">yun</td>
-        <td class="">yün</td>
+        <td class="n">yiu</td>
+        <td class="n">yie</td>
+        <td class="z dot"><i>yüe</i> - yue</td>
+        <td class="n">yer</td>
+        <td class="ui">yan <b class="z">yuan</b></td>
+        <td class="n">yen</td>
+        <td class="z">yin</td>
+        <td class="n">yun</td>
+        <td class="z dot"><i>yün</i> - yun</td>
         <td class="">yang</td>
-        <td class="">yeng</td>
-        <td class="">ying</td>
+        <td class="n">yeng</td>
+        <td class="z">ying</td>
         <td class="">yong</td>
     </tr>
     <tr>
-        <td class="">w</td>
+        <td class="h">w</td>
         <td class="">wa</td>
         <td class="">wo</td>
-        <td class="">we</td>
-        <td class="">wi</td>
-        <td class="">wu</td>
-        <td class="">wü</td>
+        <td class="n">we</td>
+        <td class="n">wi</td>
+        <td class="z">wu</td>
+        <td class="n">wü</td>
         <td class="">wai</td>
         <td class="">wei</td>
-        <td class="">wui</td>
-        <td class="">wao</td>
-        <td class="">wou</td>
-        <td class="">wiu</td>
-        <td class="">wie</td>
-        <td class="">wüe</td>
-        <td class="">wer</td>
+        <td class="n">wui</td>
+        <td class="n">wao</td>
+        <td class="n">wou</td>
+        <td class="n">wiu</td>
+        <td class="n">wie</td>
+        <td class="n">wüe</td>
+        <td class="n">wer</td>
         <td class="">wan</td>
         <td class="">wen</td>
-        <td class="">win</td>
-        <td class="">wun</td>
-        <td class="">wün</td>
+        <td class="n">win</td>
+        <td class="n">wun</td>
+        <td class="n">wün</td>
         <td class="">wang</td>
-        <td class="">weng</td>
-        <td class="">wing</td>
-        <td class="">wong</td>
+        <td class="n">weng</td>
+        <td class="n">wing</td>
+        <td class="n">wong</td>
     </tr>
 </table>
+<ul>
+    <li class="ui">+u +i</li>
+    <li class="dot">ü - u</li>
+    <li class="z">整体认读</li>
+</ul>
 </body>
 </html>
