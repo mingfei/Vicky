@@ -16,7 +16,8 @@
             width: 100%;
             height: 100%;
             margin: 10px 0;
-            border: 10px #999 outset;
+            border: 1px #000 solid;
+            /*border-image: url("../image/red-heart-border.svg") stretch 10;*/
         }
 
         caption {
@@ -28,6 +29,9 @@
         td {
             border-right: 1px solid #000;
             border-bottom: 1px solid #000;
+            padding: 3px;
+            /*background: #eee;*/
+            /*opacity: 0.7;*/
         }
 
         td:last-of-type {
@@ -38,8 +42,14 @@
             border-bottom: none;
         }
 
-        .bg {
-            background: #eee;
+        .bg-row {
+            background: #87cefa;
+            opacity: 0.7;
+        }
+
+        .bg-col {
+            background: #cfc;
+            opacity: 0.7;
         }
 
         .hover {
@@ -75,7 +85,8 @@
 
         .z { /* ZHENG TI REN DU */
             font-style: italic;
-            text-decoration: underline;
+            /*text-decoration: underline;*/
+            border-bottom: 5px solid black;
         }
 
         .ui { /* +u / +i */
@@ -85,17 +96,22 @@
     <script src="../js/jquery-3.1.1.min.js"></script>
     <script>
         $(function () {
-            $('tr:even').addClass('bg');
+            $('tr:even').addClass('bg-row');
+            $('td:even').addClass('bg-col');
             $("table").delegate('td', 'mouseover mouseout', function (e) {
                 if (e.type == 'mouseover') {
                     $(this).addClass('hover');
                     $('tr td').eq($(this).index()).addClass("hover");
+                    $('tr:last td').eq($(this).index()).addClass("hover");
                     $(this).parent().find('td:first').addClass("hover");
+                    $(this).parent().find('td:last').addClass("hover");
                 }
                 else {
                     $(this).removeClass('hover');
                     $('tr td').eq($(this).index()).removeClass("hover");
+                    $('tr:last td').eq($(this).index()).removeClass("hover");
                     $(this).parent().find('td:first').removeClass("hover");
+                    $(this).parent().find('td:last').removeClass("hover");
                 }
             });
             $('.n').empty();
@@ -131,6 +147,7 @@
         <td class="h">eng</td>
         <td class="h">ing</td>
         <td class="h">ong</td>
+        <td class="h">／</td>
     </tr>
     <tr>
         <td class="h">b</td>
@@ -158,6 +175,7 @@
         <td class="">beng</td>
         <td class="">bing</td>
         <td class="n">bong</td>
+        <td class="h">b</td>
     </tr>
     <tr>
         <td class="h">p</td>
@@ -185,6 +203,7 @@
         <td class="">peng</td>
         <td class="">ping</td>
         <td class="n">pong</td>
+        <td class="h">p</td>
     </tr>
     <tr>
         <td class="h">m</td>
@@ -212,6 +231,7 @@
         <td class="">meng</td>
         <td class="">ming</td>
         <td class="n">mong</td>
+        <td class="h">m</td>
     </tr>
     <tr>
         <td class="h">f</td>
@@ -239,6 +259,7 @@
         <td class="">feng</td>
         <td class="n">fing</td>
         <td class="n">fong</td>
+        <td class="h">f</td>
     </tr>
     <tr>
         <td class="h">d</td>
@@ -266,6 +287,7 @@
         <td class="">deng</td>
         <td class="">ding</td>
         <td class="">dong</td>
+        <td class="h">d</td>
     </tr>
     <tr>
         <td class="h">t</td>
@@ -293,6 +315,7 @@
         <td class="">teng</td>
         <td class="">ting</td>
         <td class="">tong</td>
+        <td class="h">t</td>
     </tr>
     <tr>
         <td class="h">n</td>
@@ -320,6 +343,7 @@
         <td class="">neng</td>
         <td class="">ning</td>
         <td class="">nong</td>
+        <td class="h">n</td>
     </tr>
     <tr>
         <td class="h">l</td>
@@ -347,6 +371,7 @@
         <td class="">leng</td>
         <td class="">ling</td>
         <td class="">long</td>
+        <td class="h">l</td>
     </tr>
     <tr>
         <td class="h">g</td>
@@ -374,6 +399,7 @@
         <td class="">geng</td>
         <td class="n">ging</td>
         <td class="">gong</td>
+        <td class="h">g</td>
     </tr>
     <tr>
         <td class="h">k</td>
@@ -401,6 +427,7 @@
         <td class="">keng</td>
         <td class="n">king</td>
         <td class="">kong</td>
+        <td class="h">h</td>
     </tr>
     <tr>
         <td class="h">h</td>
@@ -428,6 +455,7 @@
         <td class="">heng</td>
         <td class="n">hing</td>
         <td class="">hong</td>
+        <td class="h">h</td>
     </tr>
     <tr>
         <td class="h">j</td>
@@ -455,6 +483,7 @@
         <td class="n">jeng</td>
         <td class="">jing</td>
         <td class="ui">jiong</td>
+        <td class="h">j</td>
     </tr>
     <tr>
         <td class="h">q</td>
@@ -482,6 +511,7 @@
         <td class="n">qeng</td>
         <td class="">qing</td>
         <td class="ui">qiong</td>
+        <td class="h">q</td>
     </tr>
     <tr>
         <td class="h">x</td>
@@ -509,6 +539,7 @@
         <td class="n">xeng</td>
         <td class="">xing</td>
         <td class="ui">xiong</td>
+        <td class="h">x</td>
     </tr>
     <tr>
         <td class="h">zh</td>
@@ -536,6 +567,7 @@
         <td class="">zheng</td>
         <td class="n">zhing</td>
         <td class="">zhong</td>
+        <td class="h">zh</td>
     </tr>
     <tr>
         <td class="h">ch</td>
@@ -563,6 +595,7 @@
         <td class="">cheng</td>
         <td class="n">ching</td>
         <td class="">chong</td>
+        <td class="h">ch</td>
     </tr>
     <tr>
         <td class="h">sh</td>
@@ -590,6 +623,7 @@
         <td class="">sheng</td>
         <td class="n">shing</td>
         <td class="n">shong</td>
+        <td class="h">sh</td>
     </tr>
     <tr>
         <td class="h">r</td>
@@ -617,6 +651,7 @@
         <td class="">reng</td>
         <td class="n">ring</td>
         <td class="">rong</td>
+        <td class="h">r</td>
     </tr>
     <tr>
         <td class="h">z</td>
@@ -644,6 +679,7 @@
         <td class="">zeng</td>
         <td class="n">zing</td>
         <td class="">zong</td>
+        <td class="h">z</td>
     </tr>
     <tr>
         <td class="h">c</td>
@@ -671,6 +707,7 @@
         <td class="">ceng</td>
         <td class="n">cing</td>
         <td class="">cong</td>
+        <td class="h">c</td>
     </tr>
     <tr>
         <td class="h">s</td>
@@ -698,6 +735,7 @@
         <td class="">seng</td>
         <td class="n">sing</td>
         <td class="">song</td>
+        <td class="h">s</td>
     </tr>
     <tr>
         <td class="h">y</td>
@@ -725,6 +763,7 @@
         <td class="n">yeng</td>
         <td class="z">ying</td>
         <td class="">yong</td>
+        <td class="h">y</td>
     </tr>
     <tr>
         <td class="h">w</td>
@@ -752,12 +791,41 @@
         <td class="">weng</td>
         <td class="n">wing</td>
         <td class="n">wong</td>
+        <td class="h">w</td>
+    </tr>
+    <tr>
+        <td class="h">／</td>
+        <td class="h">a</td>
+        <td class="h">o</td>
+        <td class="h">e</td>
+        <td class="h">i</td>
+        <td class="h">u</td>
+        <td class="h">ü</td>
+        <td class="h">ai</td>
+        <td class="h">ei</td>
+        <td class="h">ui</td>
+        <td class="h">ao</td>
+        <td class="h">ou</td>
+        <td class="h">iu</td>
+        <td class="h">ie</td>
+        <td class="h">üe</td>
+        <td class="h">er</td>
+        <td class="h">an</td>
+        <td class="h">en</td>
+        <td class="h">in</td>
+        <td class="h">un</td>
+        <td class="h">ün</td>
+        <td class="h">ang</td>
+        <td class="h">eng</td>
+        <td class="h">ing</td>
+        <td class="h">ong</td>
+        <td class="h">＼</td>
     </tr>
 </table>
 <ul>
     <li class="ui">+u +i</li>
     <li class="dot">ü - u</li>
-    <li class="z">整体认读</li>
+    <li class="z" style="display: inline-block">整体认读</li>
     <li>a ai an ang ao e ê ei en eng er o ou</li>
     <li>n ng hm hng m</li>
 </ul>
